@@ -1,0 +1,1843 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>綠天咖啡 Green Sky Coffee | 專注極致手沖・高階莊園咖啡豆</title>
+  <!-- Google Fonts & Font Awesome Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root {
+      --primary-dark: #0b2216;
+      --primary-forest: #143625;
+      --primary-green: #1b4332;
+      --accent-green: #2d6a4f;
+      --light-sage: #52b788;
+      --soft-mint: #d8f3dc;
+      --gold-accent: #d4af37;
+      --gold-hover: #b8972b;
+      --bg-cream: #faf9f5;
+      --bg-white: #ffffff;
+      --text-main: #1f2421;
+      --text-muted: #58655e;
+      --border-color: #e2e8e4;
+      --shadow-sm: 0 2px 8px rgba(11, 34, 22, 0.06);
+      --shadow-md: 0 10px 25px rgba(11, 34, 22, 0.08);
+      --shadow-lg: 0 20px 40px rgba(11, 34, 22, 0.12);
+      --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+      background-color: var(--bg-cream);
+      color: var(--text-main);
+      line-height: 1.7;
+    }
+
+    h1, h2, h3, h4, .brand-font {
+      font-family: 'Noto Serif TC', serif;
+      letter-spacing: 0.02em;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: var(--transition);
+    }
+
+    button {
+      cursor: pointer;
+      font-family: inherit;
+      border: none;
+      outline: none;
+      transition: var(--transition);
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* Top Announcement Bar */
+    .top-bar {
+      background: var(--primary-dark);
+      color: var(--soft-mint);
+      text-align: center;
+      padding: 8px 16px;
+      font-size: 0.85rem;
+      letter-spacing: 0.05em;
+      border-bottom: 1px solid rgba(82, 183, 136, 0.2);
+    }
+
+    .top-bar span {
+      color: var(--gold-accent);
+      font-weight: 600;
+    }
+
+    /* Navigation */
+    header {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid var(--border-color);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 0;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-badge {
+      width: 44px;
+      height: 44px;
+      background: linear-gradient(135deg, var(--primary-forest), var(--accent-green));
+      color: var(--gold-accent);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      box-shadow: 0 4px 10px rgba(20, 54, 37, 0.3);
+    }
+
+    .logo-text h1 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--primary-forest);
+      line-height: 1.2;
+    }
+
+    .logo-text span {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      font-weight: 500;
+      display: block;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+      align-items: center;
+    }
+
+    .nav-links li a {
+      color: var(--text-main);
+      font-weight: 500;
+      font-size: 0.95rem;
+      position: relative;
+    }
+
+    .nav-links li a:hover {
+      color: var(--primary-forest);
+    }
+
+    .nav-links li a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -4px;
+      left: 0;
+      background: var(--light-sage);
+      transition: var(--transition);
+    }
+
+    .nav-links li a:hover::after {
+      width: 100%;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary-forest), var(--accent-green));
+      color: #fff;
+      padding: 10px 22px;
+      border-radius: 30px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 12px rgba(20, 54, 37, 0.25);
+    }
+
+    .btn-primary:hover {
+      background: linear-gradient(135deg, var(--accent-green), var(--primary-forest));
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(20, 54, 37, 0.35);
+      color: #fff;
+    }
+
+    .btn-outline {
+      border: 1.5px solid var(--primary-forest);
+      color: var(--primary-forest);
+      padding: 9px 20px;
+      border-radius: 30px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      background: transparent;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-outline:hover {
+      background: var(--primary-forest);
+      color: #fff;
+    }
+
+    .cart-indicator {
+      position: relative;
+      background: #f0f4f1;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary-forest);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .cart-indicator:hover {
+      background: var(--soft-mint);
+    }
+
+    .cart-badge {
+      position: absolute;
+      top: -3px;
+      right: -3px;
+      background: var(--gold-accent);
+      color: #fff;
+      font-size: 0.7rem;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      font-size: 1.4rem;
+      background: none;
+      color: var(--primary-forest);
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      background: linear-gradient(135deg, #07170e 0%, #112d1e 50%, #19462f 100%);
+      color: #fff;
+      padding: 90px 0 100px;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at 80% 20%, rgba(82, 183, 136, 0.15) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      align-items: center;
+      gap: 50px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(82, 183, 136, 0.2);
+      border: 1px solid rgba(82, 183, 136, 0.4);
+      color: var(--soft-mint);
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      margin-bottom: 24px;
+      letter-spacing: 0.05em;
+    }
+
+    .hero-tag i {
+      color: var(--gold-accent);
+    }
+
+    .hero-title {
+      font-size: 3.2rem;
+      font-weight: 900;
+      line-height: 1.25;
+      margin-bottom: 24px;
+      color: #ffffff;
+    }
+
+    .hero-title span {
+      background: linear-gradient(90deg, #74c69d, #d4af37);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-desc {
+      font-size: 1.12rem;
+      color: #d1ded6;
+      margin-bottom: 36px;
+      max-width: 540px;
+      line-height: 1.8;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn-gold {
+      background: linear-gradient(135deg, var(--gold-accent), #f39c12);
+      color: #0b2216;
+      font-weight: 700;
+      padding: 13px 28px;
+      border-radius: 30px;
+      font-size: 1rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 6px 20px rgba(212, 175, 55, 0.35);
+    }
+
+    .btn-gold:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(212, 175, 55, 0.5);
+      color: #000;
+    }
+
+    .hero-highlights {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 48px;
+      padding-top: 36px;
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .highlight-item h4 {
+      font-size: 1.4rem;
+      color: var(--gold-accent);
+      margin-bottom: 4px;
+    }
+
+    .highlight-item p {
+      font-size: 0.85rem;
+      color: #b7c7be;
+    }
+
+    /* Hero Visual Card */
+    .hero-visual {
+      position: relative;
+    }
+
+    .hero-card {
+      background: rgba(255, 255, 255, 0.06);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 24px;
+      padding: 32px;
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.35);
+      position: relative;
+    }
+
+    .dripper-illustration {
+      text-align: center;
+      padding: 24px;
+      background: radial-gradient(circle, rgba(45, 106, 79, 0.4) 0%, transparent 70%);
+      border-radius: 20px;
+      margin-bottom: 20px;
+    }
+
+    .dripper-illustration i {
+      font-size: 6.5rem;
+      color: var(--soft-mint);
+      filter: drop-shadow(0 10px 15px rgba(0,0,0,0.3));
+    }
+
+    .hero-card-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(11, 34, 22, 0.7);
+      padding: 16px 20px;
+      border-radius: 16px;
+      border: 1px solid rgba(82, 183, 136, 0.3);
+    }
+
+    .hero-card-meta .title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #fff;
+    }
+
+    .hero-card-meta .sub {
+      font-size: 0.8rem;
+      color: var(--light-sage);
+    }
+
+    .floating-badge {
+      position: absolute;
+      top: -15px;
+      right: -15px;
+      background: var(--gold-accent);
+      color: #0b2216;
+      font-weight: 800;
+      padding: 8px 16px;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* Section Global Styles */
+    section {
+      padding: 80px 0;
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 650px;
+      margin: 0 auto 50px;
+    }
+
+    .section-tag {
+      display: inline-block;
+      color: var(--accent-green);
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      background: var(--soft-mint);
+      padding: 4px 14px;
+      border-radius: 20px;
+    }
+
+    .section-title {
+      font-size: 2.3rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      margin-bottom: 14px;
+    }
+
+    .section-sub {
+      color: var(--text-muted);
+      font-size: 1rem;
+    }
+
+    /* Features Grid (品牌特點 / 用途) */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+
+    .feature-card {
+      background: var(--bg-white);
+      border: 1px solid var(--border-color);
+      border-radius: 18px;
+      padding: 36px 28px;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--light-sage);
+    }
+
+    .feature-icon-wrap {
+      width: 58px;
+      height: 58px;
+      border-radius: 14px;
+      background: var(--soft-mint);
+      color: var(--primary-forest);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 22px;
+    }
+
+    .feature-card h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin-bottom: 12px;
+    }
+
+    .feature-card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    /* Specialty Coffee Beans (高階咖啡豆商品區) */
+    .beans-section {
+      background: #f2f7f4;
+    }
+
+    .bean-filters {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      padding: 8px 20px;
+      background: #fff;
+      border: 1px solid var(--border-color);
+      border-radius: 25px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    .filter-btn.active, .filter-btn:hover {
+      background: var(--primary-forest);
+      color: #fff;
+      border-color: var(--primary-forest);
+    }
+
+    .beans-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 28px;
+    }
+
+    .bean-card {
+      background: var(--bg-white);
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .bean-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .bean-card-header {
+      background: linear-gradient(135deg, var(--primary-forest), #1d4d35);
+      color: #fff;
+      padding: 24px;
+      position: relative;
+    }
+
+    .roast-badge {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(5px);
+      padding: 3px 10px;
+      border-radius: 12px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      margin-bottom: 10px;
+    }
+
+    .score-badge {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: var(--gold-accent);
+      color: #07170e;
+      font-weight: 800;
+      font-size: 0.78rem;
+      padding: 4px 10px;
+      border-radius: 20px;
+    }
+
+    .bean-card-header h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .bean-card-header .origin {
+      font-size: 0.85rem;
+      color: var(--soft-mint);
+    }
+
+    .bean-card-body {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .flavor-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 16px;
+    }
+
+    .flavor-tag {
+      background: #eef7f2;
+      color: var(--accent-green);
+      font-size: 0.75rem;
+      padding: 4px 10px;
+      border-radius: 8px;
+      font-weight: 600;
+    }
+
+    .bean-specs {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+      line-height: 1.7;
+    }
+
+    .bean-specs li {
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px dashed #e9ecef;
+      padding: 4px 0;
+    }
+
+    .bean-specs li span:first-child {
+      color: #889890;
+    }
+
+    .bean-card-footer {
+      margin-top: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 16px;
+      border-top: 1px solid #f0f0f0;
+    }
+
+    .price-wrap .price {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--primary-forest);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    .price-wrap .weight {
+      font-size: 0.75rem;
+      color: #889890;
+    }
+
+    .btn-cart {
+      background: var(--primary-forest);
+      color: #fff;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn-cart:hover {
+      background: var(--light-sage);
+      color: var(--primary-dark);
+    }
+
+    /* Hand Drip Pour-Over Brewing Craft & Calculator */
+    .brewing-section {
+      background: #fff;
+    }
+
+    .brewing-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .steps-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .step-item {
+      display: flex;
+      gap: 20px;
+      background: var(--bg-cream);
+      padding: 18px 22px;
+      border-radius: 16px;
+      border: 1px solid var(--border-color);
+      transition: var(--transition);
+    }
+
+    .step-item:hover {
+      border-color: var(--light-sage);
+      transform: translateX(4px);
+    }
+
+    .step-num {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--primary-forest);
+      color: var(--gold-accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+
+    .step-content h4 {
+      font-size: 1.1rem;
+      color: var(--primary-dark);
+      margin-bottom: 4px;
+    }
+
+    .step-content p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    /* Interactive Brew Calculator Card */
+    .calculator-card {
+      background: linear-gradient(145deg, #0d2818, #18442e);
+      color: #fff;
+      padding: 36px;
+      border-radius: 24px;
+      box-shadow: var(--shadow-lg);
+      border: 1px solid rgba(82, 183, 136, 0.3);
+    }
+
+    .calc-title {
+      font-size: 1.4rem;
+      margin-bottom: 8px;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .calc-title i {
+      color: var(--gold-accent);
+    }
+
+    .calc-desc {
+      font-size: 0.88rem;
+      color: var(--soft-mint);
+      margin-bottom: 24px;
+    }
+
+    .calc-form-group {
+      margin-bottom: 20px;
+    }
+
+    .calc-form-group label {
+      display: block;
+      font-size: 0.85rem;
+      color: #d1ded6;
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+
+    .calc-input-wrap {
+      display: flex;
+      gap: 12px;
+    }
+
+    .calc-select, .calc-input {
+      width: 100%;
+      padding: 12px 16px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(82, 183, 136, 0.4);
+      color: #fff;
+      font-size: 1rem;
+      outline: none;
+    }
+
+    .calc-select option {
+      background: var(--primary-forest);
+      color: #fff;
+    }
+
+    .calc-results {
+      background: rgba(0, 0, 0, 0.25);
+      border-radius: 16px;
+      padding: 20px;
+      margin-top: 24px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .result-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      font-size: 0.92rem;
+    }
+
+    .result-row:last-child {
+      border-bottom: none;
+    }
+
+    .result-val {
+      font-weight: 700;
+      color: var(--gold-accent);
+      font-size: 1.05rem;
+    }
+
+    /* Promotional CTA Banner (吸引客戶消費咖啡) */
+    .promo-section {
+      background: linear-gradient(135deg, #1b4332 0%, #0d2818 100%);
+      color: #fff;
+      padding: 70px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .promo-box {
+      background: rgba(255, 255, 255, 0.05);
+      border: 2px dashed rgba(212, 175, 55, 0.5);
+      border-radius: 24px;
+      padding: 48px;
+      display: grid;
+      grid-template-columns: 1.3fr 0.7fr;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .promo-content h3 {
+      font-size: 2.2rem;
+      color: #fff;
+      margin-bottom: 14px;
+    }
+
+    .promo-content p {
+      color: #d8f3dc;
+      font-size: 1.05rem;
+      margin-bottom: 24px;
+      line-height: 1.8;
+    }
+
+    .promo-code-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(0, 0, 0, 0.3);
+      padding: 8px 20px;
+      border-radius: 12px;
+      border: 1px solid var(--gold-accent);
+      font-family: monospace;
+      font-size: 1.1rem;
+      color: var(--gold-accent);
+      font-weight: 700;
+    }
+
+    .promo-action {
+      text-align: center;
+    }
+
+    .promo-action .btn-gold {
+      width: 100%;
+      justify-content: center;
+      font-size: 1.1rem;
+      padding: 16px;
+    }
+
+    .guarantee-note {
+      font-size: 0.8rem;
+      color: #95d5b2;
+      margin-top: 12px;
+    }
+
+    /* Testimonials (手沖愛好者口碑推薦) */
+    .reviews-section {
+      background: var(--bg-cream);
+    }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .review-card {
+      background: #fff;
+      border: 1px solid var(--border-color);
+      border-radius: 18px;
+      padding: 30px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .review-stars {
+      color: var(--gold-accent);
+      margin-bottom: 16px;
+      font-size: 0.9rem;
+    }
+
+    .review-text {
+      color: var(--text-main);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      margin-bottom: 20px;
+      font-style: italic;
+    }
+
+    .reviewer {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .reviewer-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--soft-mint);
+      color: var(--primary-forest);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+    }
+
+    .reviewer-info h5 {
+      font-size: 0.95rem;
+      font-weight: 700;
+    }
+
+    .reviewer-info span {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    /* Quick Order / Reservation Modal */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.65);
+      backdrop-filter: blur(4px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+      padding: 20px;
+    }
+
+    .modal-overlay.active {
+      display: flex;
+    }
+
+    .modal-card {
+      background: #fff;
+      width: 100%;
+      max-width: 520px;
+      border-radius: 20px;
+      padding: 32px;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      animation: modalFadeIn 0.3s ease;
+    }
+
+    @keyframes modalFadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: none;
+      font-size: 1.3rem;
+      color: var(--text-muted);
+    }
+
+    .modal-close:hover {
+      color: var(--primary-dark);
+    }
+
+    .modal-header h3 {
+      font-size: 1.4rem;
+      color: var(--primary-dark);
+      margin-bottom: 6px;
+    }
+
+    .modal-header p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+    }
+
+    .form-group {
+      margin-bottom: 16px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: var(--primary-forest);
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 10px 14px;
+      border-radius: 10px;
+      border: 1px solid var(--border-color);
+      font-size: 0.95rem;
+      font-family: inherit;
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: var(--light-sage);
+      box-shadow: 0 0 0 3px rgba(82, 183, 136, 0.15);
+    }
+
+    /* Toast Notification */
+    .toast {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: var(--primary-forest);
+      color: #fff;
+      padding: 14px 24px;
+      border-radius: 12px;
+      box-shadow: var(--shadow-lg);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      z-index: 3000;
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+      border-left: 5px solid var(--gold-accent);
+    }
+
+    .toast.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--primary-dark);
+      color: #a3b8ad;
+      padding: 70px 0 30px;
+      border-top: 1px solid rgba(82, 183, 136, 0.15);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 50px;
+    }
+
+    .footer-brand h2 {
+      color: #fff;
+      font-size: 1.4rem;
+      margin-bottom: 12px;
+    }
+
+    .footer-brand p {
+      font-size: 0.9rem;
+      line-height: 1.8;
+      margin-bottom: 20px;
+      max-width: 320px;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 12px;
+    }
+
+    .social-btn {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--soft-mint);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+    }
+
+    .social-btn:hover {
+      background: var(--light-sage);
+      color: var(--primary-dark);
+    }
+
+    .footer-col h4 {
+      color: #fff;
+      font-size: 1.05rem;
+      margin-bottom: 20px;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 0.9rem;
+    }
+
+    .footer-links li a:hover {
+      color: var(--soft-mint);
+      padding-left: 4px;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding-top: 28px;
+      text-align: center;
+      font-size: 0.85rem;
+      color: #6d8478;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    /* Responsive */
+    @media (max-width: 992px) {
+      .hero-grid, .brewing-grid, .promo-box {
+        grid-template-columns: 1fr;
+      }
+      .features-grid, .reviews-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .hero-title {
+        font-size: 2.5rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+      .mobile-menu-btn {
+        display: block;
+      }
+      .features-grid, .reviews-grid {
+        grid-template-columns: 1fr;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero-title {
+        font-size: 2.1rem;
+      }
+      .hero-highlights {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+      .promo-box {
+        padding: 28px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Announcement -->
+  <div class="top-bar">
+    ☕ 歡慶綠天咖啡手沖旗艦館上線！首購輸入 <span>GREENSKY85</span> 享高階咖啡豆全館 <strong>85 折</strong> 優惠免運
+  </div>
+
+  <!-- Header & Navigation -->
+  <header>
+    <div class="container nav-container">
+      <a href="#" class="logo">
+        <div class="logo-badge">
+          <i class="fa-solid fa-mug-hot"></i>
+        </div>
+        <div class="logo-text">
+          <h1>綠天咖啡</h1>
+          <span>GREEN SKY SPECIALTY COFFEE</span>
+        </div>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#about">品牌初衷</a></li>
+        <li><a href="#beans">高階咖啡豆</a></li>
+        <li><a href="#brewing">手沖工藝指南</a></li>
+        <li><a href="#promo">限時首購特惠</a></li>
+        <li><a href="#reviews">老饕口碑</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <div class="cart-indicator" onclick="openOrderModal('手沖咖啡選購車')">
+          <i class="fa-solid fa-bag-shopping"></i>
+          <span class="cart-badge" id="cartCount">0</span>
+        </div>
+        <button class="btn-primary" onclick="openOrderModal('預約專屬手沖品鑑')">
+          <i class="fa-solid fa-calendar-check"></i> 預約品鑑
+        </button>
+        <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-text">
+        <div class="hero-tag">
+          <i class="fa-solid fa-award"></i> 專為手沖咖啡愛好者打造
+        </div>
+        <h2 class="hero-title">
+          每一滴手沖，<br>
+          皆是山林與天空的<span>極致粹煉</span>
+        </h2>
+        <p class="hero-desc">
+          綠天咖啡嚴選全球得獎微批次高階莊園豆。從手工慢篩生豆、客製化極致淺焙，到細膩水流注水，讓您在每次沖煮中品嚐純淨果酸、細緻花香與深邃回甘。
+        </p>
+        <div class="hero-buttons">
+          <a href="#beans" class="btn-gold">
+            <i class="fa-solid fa-seedling"></i> 選購高階手沖豆
+          </a>
+          <a href="#brewing" class="btn-outline" style="color: #fff; border-color: rgba(255,255,255,0.4);">
+            <i class="fa-solid fa-wand-magic-sparkles"></i> 手沖沖煮公式
+          </a>
+        </div>
+
+        <div class="hero-highlights">
+          <div class="highlight-item">
+            <h4>100%</h4>
+            <p>單一高海拔微批次莊園</p>
+          </div>
+          <div class="highlight-item">
+            <h4>90+</h4>
+            <p>SCACQI國際專業杯測分數</p>
+          </div>
+          <div class="highlight-item">
+            <h4>7 Days</h4>
+            <p>每週少量手工烘焙保證新鮮</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="floating-badge">
+          <i class="fa-solid fa-sparkles"></i> 2026 年度手沖推薦
+        </div>
+        <div class="hero-card">
+          <div class="dripper-illustration">
+            <i class="fa-solid fa-filter"></i>
+          </div>
+          <div class="hero-card-meta">
+            <div>
+              <div class="title">衣索比亞 藝伎 班吉莊園</div>
+              <div class="sub">茉莉花香・佛手柑・白桃甜感</div>
+            </div>
+            <button class="btn-primary" style="padding: 6px 14px; font-size: 0.8rem;" onclick="addToCart('衣索比亞 藝伎 班吉莊園')">
+              選購
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About / Brand Style & Purpose Section -->
+  <section id="about">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">品牌風格與用途</span>
+        <h2 class="section-title">為什麼手沖愛好者都選擇「綠天」？</h2>
+        <p class="section-sub">推廣純粹的手沖咖啡哲學，以頂級豆品與專利烘焙，帶給您沉靜而豐厚的味覺盛宴</p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon-wrap">
+            <i class="fa-solid fa-mountain"></i>
+          </div>
+          <h3>高階莊園產地直購</h3>
+          <p>專注引進海拔 1,800 公尺以上高階咖啡生豆，日夜溫差淬鍊出高密度咖啡果實，展現豐富多元的芳香分子。</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-wrap">
+            <i class="fa-solid fa-fire-burner"></i>
+          </div>
+          <h3>手沖專用曲線烘焙</h3>
+          <p>量身訂做淺焙與淺中焙烘焙曲線，最大化保留高階咖啡豆的地域風味（Terroir）與清透明亮的果酸層次。</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-wrap">
+            <i class="fa-solid fa-heart-pulse"></i>
+          </div>
+          <h3>客製養豆與新鮮度保證</h3>
+          <p>單向排氣閥密封包裝，標註精準烘焙日期與建議適飲天數，讓您每次手沖都能釋放最飽滿乾淨的咖啡香氣。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Beans Section (吸引客戶消費咖啡 / 產品展示) -->
+  <section class="beans-section" id="beans">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">極致選品・頂級高階豆</span>
+        <h2 class="section-title">手沖咖啡喜好者的夢幻豆單</h2>
+        <p class="section-sub">精選世界前 1% 精品咖啡豆，經過三次手選挑豆，每一款皆為手沖而生</p>
+      </div>
+
+      <div class="bean-filters">
+        <button class="filter-btn active">全部手沖豆</button>
+        <button class="filter-btn">花香明亮系列</button>
+        <button class="filter-btn">熱帶熱情果香</button>
+        <button class="filter-btn">水洗經典甘醇</button>
+      </div>
+
+      <div class="beans-grid">
+        <!-- Bean Card 1 -->
+        <div class="bean-card">
+          <div class="bean-card-header">
+            <span class="roast-badge">精緻淺焙 Light Roast</span>
+            <span class="score-badge">SCA 93.5</span>
+            <h3>巴拿馬 翡翠莊園 藍標瑰夏</h3>
+            <div class="origin"><i class="fa-solid fa-location-dot"></i> 巴拿馬 波奎特產區 (1,700m)</div>
+          </div>
+          <div class="bean-card-body">
+            <div class="flavor-tags">
+              <span class="flavor-tag">茉莉花</span>
+              <span class="flavor-tag">佛手柑</span>
+              <span class="flavor-tag">蜂蜜甜</span>
+              <span class="flavor-tag">荔枝</span>
+            </div>
+            <ul class="bean-specs">
+              <li><span>處理法：</span><strong>精緻水洗 Washed</strong></li>
+              <li><span>品種：</span><strong>Geisha 瑰夏</strong></li>
+              <li><span>建議水溫：</span><strong>92°C 萃取</strong></li>
+            </ul>
+            <div class="bean-card-footer">
+              <div class="price-wrap">
+                <div class="price">NT$ 880</div>
+                <div class="weight">/ 200g (半磅裝)</div>
+              </div>
+              <button class="btn-cart" onclick="addToCart('巴拿馬 翡翠莊園 藍標瑰夏')">
+                <i class="fa-solid fa-cart-plus"></i> 選購
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bean Card 2 -->
+        <div class="bean-card">
+          <div class="bean-card-header">
+            <span class="roast-badge">淺中焙 Light-Medium</span>
+            <span class="score-badge">SCA 91.8</span>
+            <h3>衣索比亞 耶加雪菲 歌姬</h3>
+            <div class="origin"><i class="fa-solid fa-location-dot"></i> 衣索比亞 潔蒂普產區 (2,100m)</div>
+          </div>
+          <div class="bean-card-body">
+            <div class="flavor-tags">
+              <span class="flavor-tag">黃檸檬</span>
+              <span class="flavor-tag">白桃烏龍</span>
+              <span class="flavor-tag">伯爵茶感</span>
+            </div>
+            <ul class="bean-specs">
+              <li><span>處理法：</span><strong>慢速日曬 Natural</strong></li>
+              <li><span>品種：</span><strong>Heirloom 原生種</strong></li>
+              <li><span>建議水溫：</span><strong>90°C 萃取</strong></li>
+            </ul>
+            <div class="bean-card-footer">
+              <div class="price-wrap">
+                <div class="price">NT$ 550</div>
+                <div class="weight">/ 200g (半磅裝)</div>
+              </div>
+              <button class="btn-cart" onclick="addToCart('衣索比亞 耶加雪菲 歌姬')">
+                <i class="fa-solid fa-cart-plus"></i> 選購
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bean Card 3 -->
+        <div class="bean-card">
+          <div class="bean-card-header">
+            <span class="roast-badge">淺焙 Light Roast</span>
+            <span class="score-badge">SCA 92.2</span>
+            <h3>肯亞 祈安布 AA TOP 圓豆</h3>
+            <div class="origin"><i class="fa-solid fa-location-dot"></i> 肯亞 祈安布省 (1,950m)</div>
+          </div>
+          <div class="bean-card-body">
+            <div class="flavor-tags">
+              <span class="flavor-tag">黑醋栗</span>
+              <span class="flavor-tag">黑莓果醬</span>
+              <span class="flavor-tag">紅酒尾韻</span>
+            </div>
+            <ul class="bean-specs">
+              <li><span>處理法：</span><strong>雙重發酵水洗 72h</strong></li>
+              <li><span>品種：</span><strong>SL28, SL34</strong></li>
+              <li><span>建議水溫：</span><strong>91°C 萃取</strong></li>
+            </ul>
+            <div class="bean-card-footer">
+              <div class="price-wrap">
+                <div class="price">NT$ 620</div>
+                <div class="weight">/ 200g (半磅裝)</div>
+              </div>
+              <button class="btn-cart" onclick="addToCart('肯亞 祈安布 AA TOP 圓豆')">
+                <i class="fa-solid fa-cart-plus"></i> 選購
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bean Card 4 -->
+        <div class="bean-card">
+          <div class="bean-card-header">
+            <span class="roast-badge">特殊發酵 Special Process</span>
+            <span class="score-badge">SCA 94.0</span>
+            <h3>哥倫比亞 玫瑰夏綠蒂 厭氧</h3>
+            <div class="origin"><i class="fa-solid fa-location-dot"></i> 哥倫比亞 薇拉產區 (1,850m)</div>
+          </div>
+          <div class="bean-card-body">
+            <div class="flavor-tags">
+              <span class="flavor-tag">玫瑰香氛</span>
+              <span class="flavor-tag">草莓氣泡酒</span>
+              <span class="flavor-tag">絲絨可可</span>
+            </div>
+            <ul class="bean-specs">
+              <li><span>處理法：</span><strong>雙重厭氧熱衝擊 Anaerobic</strong></li>
+              <li><span>品種：</span><strong>Castillo 櫻桃種</strong></li>
+              <li><span>建議水溫：</span><strong>89°C 萃取</strong></li>
+            </ul>
+            <div class="bean-card-footer">
+              <div class="price-wrap">
+                <div class="price">NT$ 720</div>
+                <div class="weight">/ 200g (半磅裝)</div>
+              </div>
+              <button class="btn-cart" onclick="addToCart('哥倫比亞 玫瑰夏綠蒂 厭氧')">
+                <i class="fa-solid fa-cart-plus"></i> 選購
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pour-Over Craft & Brewing Guide (推廣手沖咖啡教學與互動計算機) -->
+  <section class="brewing-section" id="brewing">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">推廣手沖咖啡</span>
+        <h2 class="section-title">手沖美學：三段注水黃金萃取法</h2>
+        <p class="section-sub">手沖不僅是一杯咖啡，更是慢下來與自然香氣對話的儀式</p>
+      </div>
+
+      <div class="brewing-grid">
+        <ul class="steps-list">
+          <li class="step-item">
+            <div class="step-num">01</div>
+            <div class="step-content">
+              <h4>溫壺濕紙與悶蒸 (30秒)</h4>
+              <p>以90°C熱水浸濕濾紙去除紙味。倒入咖啡粉拍平，由中心向外輕柔注入兩倍粉重的水量進行悶蒸，喚醒高階咖啡豆的豐富芳香氣體。</p>
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-num">02</div>
+            <div class="step-content">
+              <h4>第一段核心萃取 (風味層次)</h4>
+              <p>以穩定細水流順時針緩慢繞圈，帶出高階豆最甜美的花果酸香與清澈前段口感，水流保持均勻不沖刷濾紙邊緣。</p>
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-num">03</div>
+            <div class="step-content">
+              <h4>第二段補水與尾韻平衡</h4>
+              <p>補足剩餘水量至目標粉水比（建議 1:15），在 2 分 15 秒至 2 分 30 秒內流乾，搖勻享用一杯香氣迷人的綠天手沖。</p>
+            </div>
+          </li>
+        </ul>
+
+        <!-- Interactive Calculator -->
+        <div class="calculator-card">
+          <h3 class="calc-title">
+            <i class="fa-solid fa-calculator"></i> 手沖注水參數計算機
+          </h3>
+          <p class="calc-desc">輸入您打算使用的咖啡粉克數，自動為您計算最佳悶蒸量、總注水量與各段比例：</p>
+          
+          <div class="calc-form-group">
+            <label for="coffeeDose"><i class="fa-solid fa-scale-balanced"></i> 咖啡粉重量 (g)</label>
+            <input type="number" id="coffeeDose" class="calc-input" value="15" min="10" max="40" oninput="calculateBrew()">
+          </div>
+
+          <div class="calc-form-group">
+            <label for="brewRatio"><i class="fa-solid fa-droplet"></i> 推薦粉水比</label>
+            <select id="brewRatio" class="calc-select" onchange="calculateBrew()">
+              <option value="15" selected>1 : 15 (黃金風味・層次豐富)</option>
+              <option value="16">1 : 16 (清爽明亮・花果香突出)</option>
+              <option value="14">1 : 14 (厚實濃郁・醇厚尾韻)</option>
+            </select>
+          </div>
+
+          <div class="calc-results">
+            <div class="result-row">
+              <span>悶蒸注水量 (2倍粉重)：</span>
+              <span class="result-val" id="resBloom">30 g (約 30 秒)</span>
+            </div>
+            <div class="result-row">
+              <span>第一段中心注水：</span>
+              <span class="result-val" id="resPour1">注水至 135 g</span>
+            </div>
+            <div class="result-row">
+              <span>第二段完成總水量：</span>
+              <span class="result-val" id="resTotal">225 g</span>
+            </div>
+            <div class="result-row">
+              <span>建議研磨刻度：</span>
+              <span class="result-val" style="color: #74c69d;">中細研磨 (二砂糖大小)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Promotional Banner (功能：吸引客戶消費咖啡) -->
+  <section class="promo-section" id="promo">
+    <div class="container">
+      <div class="promo-box">
+        <div class="promo-content">
+          <h3>入手頂級手沖生活，從首購體驗組開始</h3>
+          <p>
+            專為新朋友規劃的「大師手沖探索組」：內含衣索比亞藝伎、巴拿馬瑰夏、肯亞圓豆各 100g，附贈專用手沖濾紙與品飲風味指引卡。限量 50 組，搶先體驗大師級風味。
+          </p>
+          <div>
+            <span class="promo-code-badge">
+              <i class="fa-solid fa-tag"></i> 專屬折扣碼：GREENSKY85
+            </span>
+          </div>
+        </div>
+        <div class="promo-action">
+          <button class="btn-gold" onclick="openOrderModal('大師手沖探索組 (3入限定)')">
+            <i class="fa-solid fa-gift"></i> 立即搶購特惠組 NT$ 999
+          </button>
+          <div class="guarantee-note">
+            <i class="fa-solid fa-shield-halved"></i> 全台冷鏈新鮮配送 ｜ 7天賞味鑑賞保障
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Customer Testimonials -->
+  <section class="reviews-section" id="reviews">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">顧客好評</span>
+        <h2 class="section-title">手沖咖啡愛好者的真心迴響</h2>
+        <p class="section-sub">超過 2,000+ 位品味饕客每日清晨的溫暖陪伴</p>
+      </div>
+
+      <div class="reviews-grid">
+        <div class="review-card">
+          <div class="review-stars">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+          <p class="review-text">「綠天咖啡的藍標瑰夏水洗真的驚艷！沖煮時滿室茉莉花與柑橘香氣，放涼後果酸更加圓潤多汁，是近期喝過水準最高的手沖豆。」</p>
+          <div class="reviewer">
+            <div class="reviewer-avatar">陳</div>
+            <div class="reviewer-info">
+              <h5>陳先生 (SCA 中級杯測師)</h5>
+              <span>手沖豆固定訂閱客戶</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-stars">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+          <p class="review-text">「網站的手沖計算機太實用了，以前老是抓不準粉水比，照著步驟沖肯亞圓豆，黑醋栗與黑莓的層次瞬間拉開，完全不苦澀！」</p>
+          <div class="reviewer">
+            <div class="reviewer-avatar">林</div>
+            <div class="reviewer-info">
+              <h5>林小姐</h5>
+              <span>居家手沖愛好者 3 年</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-stars">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+          <p class="review-text">「出貨速度極快，而且包裝上貼心地印上了最佳養豆期！這家店對高階豆的用心程度令人讚嘆，回購無數次了。」</p>
+          <div class="reviewer">
+            <div class="reviewer-avatar">張</div>
+            <div class="reviewer-info">
+              <h5>張建築師</h5>
+              <span>綠天白金會員</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal for Purchase & Reservation -->
+  <div class="modal-overlay" id="orderModal">
+    <div class="modal-card">
+      <button class="modal-close" onclick="closeOrderModal()">&times;</button>
+      <div class="modal-header">
+        <h3 id="modalTitle">立即選購 / 預約品鑑</h3>
+        <p>填寫簡單資料，我們的專業咖啡師將迅速為您準備新鮮烘焙豆</p>
+      </div>
+      <form onsubmit="handleOrderSubmit(event)">
+        <div class="form-group">
+          <label>選購品項 / 預約項目</label>
+          <input type="text" id="selectedItemInput" class="form-control" readonly>
+        </div>
+        <div class="form-group">
+          <label>您的姓名</label>
+          <input type="text" class="form-control" placeholder="例：林品言" required>
+        </div>
+        <div class="form-group">
+          <label>聯絡電話</label>
+          <input type="tel" class="form-control" placeholder="例：0912-345-678" required>
+        </div>
+        <div class="form-group">
+          <label>研磨度需求</label>
+          <select class="form-control">
+            <option>原豆不研磨（強烈建議，現磨最香）</option>
+            <option>代客研磨 - 手沖濾杯專用細度</option>
+            <option>代客研磨 - 愛樂壓 / 法壓壺粗度</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>收件地址或備註</label>
+          <textarea class="form-control" rows="2" placeholder="請填寫收件門市或地址"></textarea>
+        </div>
+        <button type="submit" class="btn-gold" style="width: 100%; justify-content: center; margin-top: 10px;">
+          確認送出訂單
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toastMessage">
+    <i class="fa-solid fa-circle-check" style="font-size: 1.3rem; color: var(--gold-accent);"></i>
+    <span id="toastText">已將高階手沖豆加入選購單！</span>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h2>綠天咖啡 Green Sky Coffee</h2>
+          <p>
+            專注於手沖咖啡的純淨本質，以綠意之名，串聯自然風土與手沖匠心。嚴選全球 90+ 高階莊園生豆，打造頂級品飲生活。
+          </p>
+          <div class="social-links">
+            <a href="#" class="social-btn"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="social-btn"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" class="social-btn"><i class="fa-brands fa-line"></i></a>
+            <a href="#" class="social-btn"><i class="fa-solid fa-envelope"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>探索高階豆</h4>
+          <ul class="footer-links">
+            <li><a href="#beans">巴拿馬藍標瑰夏</a></li>
+            <li><a href="#beans">衣索比亞耶加雪菲</a></li>
+            <li><a href="#beans">肯亞 AA 圓豆</a></li>
+            <li><a href="#beans">微批次厭氧處理</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>手沖咖啡學堂</h4>
+          <ul class="footer-links">
+            <li><a href="#brewing">三段注水法指南</a></li>
+            <li><a href="#brewing">粉水比黃金公式</a></li>
+            <li><a href="#about">養豆時程建議</a></li>
+            <li><a href="#about">濾杯水流速度比較</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>實體門市與聯絡</h4>
+          <ul class="footer-links">
+            <li><i class="fa-solid fa-location-dot"></i> 台北市大安區品味路 88 號</li>
+            <li><i class="fa-solid fa-phone"></i> (02) 2700-8899</li>
+            <li><i class="fa-solid fa-clock"></i> 週一至週日 10:00 - 19:00</li>
+            <li><i class="fa-solid fa-shield"></i> 綠天莊園品鑑保證</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 綠天咖啡 Green Sky Coffee. All Rights Reserved.</div>
+        <div>推廣精緻手沖生活 ｜ 極致高階咖啡豆首選</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Interactive Scripts -->
+  <script>
+    let cartCount = 0;
+
+    // Toast Notification helper
+    function showToast(message) {
+      const toast = document.getElementById('toastMessage');
+      const text = document.getElementById('toastText');
+      text.innerText = message;
+      toast.classList.add('show');
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 3200);
+    }
+
+    // Add to Cart Simulation
+    function addToCart(productName) {
+      cartCount++;
+      document.getElementById('cartCount').innerText = cartCount;
+      showToast(`已將【${productName}】加入購物車！首購輸入 GREENSKY85 享85折`);
+    }
+
+    // Modal Control
+    function openOrderModal(itemName) {
+      document.getElementById('selectedItemInput').value = itemName || '綠天精品手沖咖啡豆系列';
+      document.getElementById('modalTitle').innerText = itemName.includes('預約') ? '預約手沖品鑑' : '選購咖啡豆';
+      document.getElementById('orderModal').classList.add('active');
+    }
+
+    function closeOrderModal() {
+      document.getElementById('orderModal').classList.remove('active');
+    }
+
+    // Close modal when clicking backdrop
+    window.onclick = function(event) {
+      const modal = document.getElementById('orderModal');
+      if (event.target === modal) {
+        closeOrderModal();
+      }
+    };
+
+    // Form Submission
+    function handleOrderSubmit(e) {
+      e.preventDefault();
+      closeOrderModal();
+      showToast('感謝您的訂購！專業咖啡師將與您聯絡配送時間。');
+    }
+
+    // Brew Calculator Logic
+    function calculateBrew() {
+      const dose = parseFloat(document.getElementById('coffeeDose').value) || 15;
+      const ratio = parseFloat(document.getElementById('brewRatio').value) || 15;
+      
+      const bloom = Math.round(dose * 2);
+      const totalWater = Math.round(dose * ratio);
+      const pour1 = Math.round(totalWater * 0.6);
+
+      document.getElementById('resBloom').innerText = `${bloom} g (約 30 秒)`;
+      document.getElementById('resPour1').innerText = `注水至 ${pour1} g`;
+      document.getElementById('resTotal').innerText = `${totalWater} g`;
+    }
+
+    // Initialize Brew Calculator
+    calculateBrew();
+
+    // Mobile Menu Toggle
+    function toggleMobileMenu() {
+      const navLinks = document.querySelector('.nav-links');
+      if (navLinks.style.display === 'flex') {
+        navLinks.style.display = 'none';
+      } else {
+        navLinks.style.display = 'flex';
+        navLinks.style.flexDirection = 'column';
+        navLinks.style.position = 'absolute';
+        navLinks.style.top = '70px';
+        navLinks.style.left = '0';
+        navLinks.style.width = '100%';
+        navLinks.style.background = '#ffffff';
+        navLinks.style.padding = '20px';
+        navLinks.style.boxShadow = '0 10px 20px rgba(0,0,0,0.1)';
+      }
+    }
+  </script>
+</body>
+</html>
+
